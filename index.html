@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparatif Premium : Assurance-Vie Française vs Luxembourgeoise</title>
+    <style>
+        :root {
+            --primary: #0A2540;
+            --secondary: #635BFF;
+            --accent: #D4AF37;
+            --dark-bg: #0F172A;
+            --light-bg: #F8FAFC;
+            --border-color: #E2E8F0;
+            --text-main: #334155;
+            --text-dark: #0F172A;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+        }
+
+        header p {
+            color: #94A3B8;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 1rem auto 0 auto;
+        }
+
+        .badge {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .intro-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            margin-bottom: 3rem;
+            border-left: 5px solid var(--secondary);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+
+        h3 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F1F5F9;
+        }
+
+        .highlight-row {
+            background-color: #EFF6FF !important;
+            font-weight: bold;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgb(0 0 0 / 0.02);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+        }
+
+        .warning-box {
+            background-color: #FFFBEB;
+            border-left: 5px solid #F59E0B;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        /* Styles du Simulateur */
+        .simulator-section {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin-top: 4rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        .simulator-section h2 {
+            color: white;
+            border-bottom-color: #334155;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #94A3B8;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background-color: #1E293B;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .btn-calc {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .btn-calc:hover {
+            background-color: #4F46E5;
+        }
+
+        .results-box {
+            background-color: #1E293B;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px dashed #475569;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-val {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #F8FAFC;
+        }
+
+        .result-val.highlight {
+            color: #6EE7B7;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Analyse d'Expert 2026</span>
+        <h1>France vs Luxembourg : Le Match de l'Assurance-Vie</h1>
+        <p>Le guide ultime, didactique et sans concession pour décrypter l'architecture légale, les structures de frais et la réalité mathématique des rendements nets.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="intro-box">
+            <strong>Note de cadrage BFM Business :</strong> Pour un résident fiscal français, la fiscalité de l'assurance-vie luxembourgeoise est rigoureusement identique à celle d'un contrat de droit français (Prélèvement Forfaitaire Unique de 30% ou intégration au barème progressif, abattements après 8 ans, fiscalité successorale des articles 990 I et 757 B). La différence fondamentale réside dans la <strong>sécurité des avoirs</strong>, la <strong>diversification des actifs accessibles</strong>, et les <strong>mécanismes de frais</strong>.
+        </div>
+
+        <h2>1. Tableau Comparatif Synthétique</h2>
+        <p>Ce tableau dresse l'état de l'art pour comprendre immédiatement où se situent les forces en présence selon la taille de votre patrimoine.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Critère fondamental</th>
+                    <th>Assurance-Vie Française</th>
+                    <th>Assurance-Vie Luxembourgeoise</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ticket d'entrée pratique</strong></td>
+                    <td>Dès 100 € (Contrats digitaux) à 5 000 € (Banques Privées).</td>
+                    <td>Minimum légal/pratique de 100 000 € à 250 000 € selon les compagnies.</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Garantie des dépôts (Faillite)</strong></td>
+                    <td>Plafonnée à <strong>70 000 €</strong> par assuré et par compagnie (FGAP).</td>
+                    <td><strong>Illimitée</strong> via le mécanisme légal du "Triangle de Sécurité".</td>
+                </tr>
+                <tr>
+                    <td><strong>Statut du souscripteur</strong></td>
+                    <td>Créancier ordinaire de l'assureur (fonds noyés dans le bilan global).</td>
+                    <td>Créancier de premier rang absolu (<strong>Super-Privilège</strong> légal).</td>
+                </tr>
+                <tr>
+                    <td><strong>Blocage des rachats (Loi Sapin 2)</strong></td>
+                    <td>Applicable (le HCSF peut bloquer temporairement les rachats).</td>
+                    <td>Non applicable (l'État français ne peut bloquer un assureur étranger).</td>
+                </tr>
+                <tr>
+                    <td><strong>Devises disponibles</strong></td>
+                    <td>Exclusivement l'Euro (€). Diversification internationale indirecte.</td>
+                    <td>Multidevises native (EUR, USD, CHF, GBP, JPY, etc.).</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Univers d'investissement</strong></td>
+                    <td>Fonds en Euros, Unités de compte (Sicav, FCP), SCPI/SCI, ETF, structurés.</td>
+                    <td>Architecture ouverte totale + <strong>Fonds Dédiés (FID, FIC, FAS)</strong>, Private Equity en direct, Titres vifs.</td>
+                </tr>
+                <tr>
+                    <td><strong>Portabilité internationale</strong></td>
+                    <td>Faible. Risque de requalification ou de clôture forcée en cas d'expatriation.</td>
+                    <td>Optimale. <strong>Contrat caméléon</strong> s'adaptant à la fiscalité du nouveau pays.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>2. L'Univers d'Investissement et la segmentation luxembourgeoise</h2>
+        <p>Si la France brille par la simplicité de ses Unités de Compte standardisées et la présence historique du fonds en euros garanti, le Luxembourg déploie une puissance sur-mesure unique grâce à la <strong>Lettre Circulaire 24/1 et ses révisions du Commissariat aux Assurances (CAA)</strong>. En fonction de votre encours et de votre fortune en valeurs mobilières, vous accédez à des véhicules exclusifs :</p>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3>Le Fonds d'Assurance Spécialisé (FAS)</h3>
+                <p><strong>Accessible dès 250 000 €</strong></p>
+                <p>Il permet au souscripteur de choisir lui-même ses lignes de gestion en direct (titres vifs, actions, obligations, Private Equity institutionnel, fonds de couverture) sans l'obligation de passer par un gérant professionnel délégué. C'est l'outil ultime pour la gestion conseillée haut de gamme.</p>
+            </div>
+            <div class="card">
+                <h3>Le Fonds Interne Dédié (FID)</h3>
+                <p><strong>Accessible dès 250 000 € (Optimal à 1M€+)</strong></p>
+                <p>C'est un mandat de gestion de gestion privée individualisé créé sur-mesure pour un seul souscripteur. Une société de gestion externe gère l'enveloppe selon un profil de risque défini. Les limites de détention d'actifs s'assouplissent drastiquement à mesure que votre fortune financière grandit.</p>
+            </div>
+        </div>
+
+        <h2>3. Transparence Radicale : Chasse aux Frais Cachés</h2>
+        <p>C'est ici que l'analyse financière prend tout son sens. Le Luxembourg offre une protection d'élite, mais elle a un coût. Pour comparer rigoureusement, un investisseur doit traquer l'empilement des couches tarifaires.</p>
+
+        <div class="warning-box">
+            <h3>⚠️ L'alerte de l'expert : La théorie des poupées russes (Double Layering)</h3>
+            <p>Trop d'épargnants ne regardent que les frais de gestion du contrat (ex: 0,80%). Ils oublient que dans un contrat haut de gamme, les frais s'empilent. Voici l'anatomie des frais cachés ou indirects à surveiller de près :</p>
+            <ul>
+                <li><strong>Frais de Banque Dépositaire :</strong> Au Luxembourg, contrairement à la France, les actifs sont conservés par une banque externe agréée par le CAA. Cette banque facture des frais de tenue de compte (souvent entre 0,05% et 0,25% par an) qui s'ajoutent aux frais de l'assureur.</li>
+                <li><strong>Frais de Mandat / Société de Gestion :</strong> Si vous optez pour un FID, le gestionnaire financier facture ses propres honoraires de gestion (de 0,20% à 0,75% par an).</li>
+                <li><strong>Frais internes des sous-jacents (Frais courants) :</strong> Les fonds dans lesquels vous investissez (OPCVM, fonds de Private Equity) prélèvent des frais internes d'administration. Privilégiez absolument les <em>Clean Shares</em> (parts institutionnelles sans rétrocession) au Luxembourg pour neutraliser cette ligne.</li>
+                <li><strong>Frais de mouvement et d'arbitrage :</strong> Certains contrats facturent chaque ligne d'achat/vente au sein d'un FAS ou d'un FID.</li>
+                <li><strong>Spread de change (Frais de conversion) :</strong> Si vous achetez des actifs en Dollars (USD) au sein d'un contrat en Euros, le taux de change peut être majoré d'une commission cachée de 0,30% à 1% par l'établissement bancaire.</li>
+            </ul>
+        </div>
+
+        <div class="simulator-section">
+            <h2>4. Simulateur de Rendement Net Réel (Toutes Couches de Frais Incluses)</h2>
+            <p>Saisissez vos paramètres pour mesurer l'effet de friction des frais sur votre capital au fil du temps. Ce calcul simule la capitalisation année par année en déduisant l'intégralité des frais du montant valorisé.</p>
+            
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div>
+                    <div class="form-group">
+                        <label for="initial">Mise d'entrée / Versement Initial (€)</label>
+                        <input type="number" id="initial" value="500000" step="10000">
+                    </div>
+                    <div class="form-group">
+                        <label for="duration">Durée de placement (Années)</label>
+                        <input type="number" id="duration" value="10" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="grossReturn">Rendement Annuel Brut Estimé des Marchés (%)</label>
+                        <input type="number" id="grossReturn" value="6.5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="entryFee">Frais d'entrée ou sur versement (%)</label>
+                        <input type="number" id="entryFee" value="0.5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="mgmtFee">Frais de gestion annuels de l'assureur (%)</label>
+                        <input type="number" id="mgmtFee" value="0.75" step="0.05">
+                    </div>
+                    <div class="form-group">
+                        <label for="depFee">Frais annuels de Banque Dépositaire / Mandat (%) <small>(Mettre 0 pour la France)</small></label>
+                        <input type="number" id="depFee" value="0.15" step="0.05">
+                    </div>
+                    <div class="form-group">
+                        <label for="undFee">Frais courants internes des fonds sous-jacents (%)</label>
+                        <input type="number" id="undFee" value="0.90" step="0.05">
+                    </div>
+                    <div class="form-group">
+                        <label for="hiddenFee">Frais cachés estimés (Transactions, Change, Cash drag) (%)</label>
+                        <input type="number" id="hiddenFee" value="0.10" step="0.05">
+                    </div>
+                    <button class="btn-calc" onclick="runSimulation()">Calculer le Rendement Net</button>
+                </div>
+
+                <div>
+                    <div class="results-box">
+                        <h3>Bilan de la Simulation</h3>
+                        
+                        <div class="result-item">
+                            <span>Capital Initial Brut investi :</span>
+                            <span class="result-val" id="resInitial">500 000 €</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Frais d'entrée immédiats prélevés :</span>
+                            <span class="result-val" style="color:#FCA5A5;" id="resEntryCost">- 2 500 €</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Capital Réellement Mis au Travail :</span>
+                            <span class="result-val" id="resNetInvested">497 500 €</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Total des frais annuels récurrents :</span>
+                            <span class="result-val" style="color:#FCA5A5;" id="resTotalAnnualFeesRate">1.90 % / an</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Cumul des frais prélevés sur la durée :</span>
+                            <span class="result-val" style="color:#FCA5A5;" id="resTotalFeesAccumulated">- 112 500 €</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Capital Final Net (Avant impôt) :</span>
+                            <span class="result-val highlight" id="resFinalCapital">712 000 €</span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid #475569; padding-top: 1.5rem;">
+                            <span>Taux de Rendement Annuel Net Réel :</span>
+                            <span class="result-val highlight" id="resNetReturnRate">4.51 %</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #94A3B8; margin-top: 1rem; font-style: italic;">
+                        *Méthodologie : Le simulateur calcule la performance année par année. Les frais annuels globaux sont appliqués en fin d'année sur l'encours brut valorisé, reproduisant fidèlement le comportement de traînée ("fee drag") des enveloppes d'assurance-vie.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function runSimulation() {
+            // Récupération des inputs
+            const initial = parseFloat(document.getElementById('initial').value);
+            const duration = parseInt(document.getElementById('duration').value);
+            const grossReturn = parseFloat(document.getElementById('grossReturn').value) / 100;
+            const entryFee = parseFloat(document.getElementById('entryFee').value) / 100;
+            const mgmtFee = parseFloat(document.getElementById('mgmtFee').value) / 100;
+            const depFee = parseFloat(document.getElementById('depFee').value) / 100;
+            const undFee = parseFloat(document.getElementById('undFee').value) / 100;
+            const hiddenFee = parseFloat(document.getElementById('hiddenFee').value) / 100;
+
+            // Calculs initiaux
+            const entryCost = initial * entryFee;
+            const netInvested = initial - entryCost;
+            
+            const totalAnnualFeesRate = mgmtFee + depFee + undFee + hiddenFee;
+            
+            let currentCapital = netInvested;
+            let totalFeesAccumulated = entryCost;
+
+            // Boucle de capitalisation annuelle
+            for (let y = 0; y < duration; y++) {
+                let capitalBeforeFees = currentCapital * (1 + grossReturn);
+                let annualFees = capitalBeforeFees * totalAnnualFeesRate;
+                currentCapital = capitalBeforeFees - annualFees;
+                totalFeesAccumulated += annualFees;
+            }
+
+            // Calcul du taux de rendement net annuel équivalent (TRI)
+            let netReturnRate = (Math.pow(currentCapital / initial, 1 / duration) - 1) * 100;
+
+            // Affichage des résultats au format monétaire français
+            const formatter = new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+            
+            document.getElementById('resInitial').innerText = formatter.format(initial);
+            document.getElementById('resEntryCost').innerText = "- " + formatter.format(entryCost);
+            document.getElementById('resNetInvested').innerText = formatter.format(netInvested);
+            document.getElementById('resTotalAnnualFeesRate').innerText = (totalAnnualFeesRate * 100).toFixed(2) + " % / an";
+            document.getElementById('resTotalFeesAccumulated').innerText = "- " + formatter.format(totalFeesAccumulated);
+            document.getElementById('resFinalCapital').innerText = formatter.format(currentCapital);
+            document.getElementById('resNetReturnRate').innerText = netReturnRate.toFixed(2) + " %";
+        }
+
+        // Exécution automatique au chargement initial
+        window.onload = function() {
+            runSimulation();
+        };
+    </script>
+</body>
+</html>
